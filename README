@@ -1,0 +1,27 @@
+% README
+%
+% Files for fitting f-I curves to dynamic clamp data as described 
+% in Badel, et al. 2008
+%
+% 1) Spike times (COMPLETED)
+% get_spike_times_fn.m                      Get spike times from voltage trace
+% get_spike_times_driver.m                  Example call to get_spike_times_....
+% 
+% 2) Capacitance (COMPLETED)
+% estimate_capacitance_Outer_fn.m           Function to estimate C (Outer)
+% estimate_capacitance_fn.m                 Function to estimate C (Inner)
+% estimate_capacitance_driver.m             Example call to estimate_capacitance_...
+%
+% 3) 
+% segregate_fIcurves_fn.m                   Compute ionic currents (f(V)) and separate V,f(V) 
+%                                           data by time since the last spike
+% segregate_fIcurves_driver.m               Example call to segregate_fIcurves_...
+%
+%
+% fit_f_fminsearch.m                        Use fminsearch to find best functional 
+%                                           fit to (V,f(V)) data
+% fit_single_fIcurve_fn.m                   Do this many times????
+% fit_single_fIcurve_driver.m               Example call to ...
+%
+% f_fit.m                                   Error of given curve to (V,f(V)) data (called 
+%                                            by above functions)                           
