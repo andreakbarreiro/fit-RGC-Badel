@@ -2,7 +2,7 @@
 % Original is in ../Julijana_code_orig_2010
 
 % File w/ data
-dfile = '../ON-parasol-dclamp.mat';
+dfile = 'ON-parasol-dclamp.mat';
 load(dfile);
 
 %Vlist = lowc_same(k,:);
