@@ -6,7 +6,7 @@ dfile = 'ON-parasol-dclamp.mat';
 load(dfile);
 
 %Vlist = lowc_same(k,:);
-Vlist_array = highc_same;
+Vlist_array = highc_same; 
 gelist = exc_high_same(1:end-1);
 gilist = inh_highc_same(1:end-1);
 
@@ -66,4 +66,4 @@ if (click_through_sp_times_flag)
         end
         pause;
     end
-end
+end % Click_through
