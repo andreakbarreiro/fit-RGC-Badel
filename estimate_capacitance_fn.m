@@ -80,13 +80,20 @@ for k=1:nList
     
     okind     = find(Vlist >= Vmin & Vlist <= Vmax & win_labels==0);
     
+    
+        
+    
     Iapplist  = [Iapplist Iapplist_temp(okind)];
     dVdtlist  = [dVdtlist dVdt_temp(okind)];
+    
+    
 end
+
 
 for i=1:numel(Cap_array)
    C            = Cap_array(i);
    data         = (Iapplist - C*dVdtlist)/C;
+   %data         = (Iapplist/C) - dVdtlist;
    Var_array(i) = var(data);
 end
 
@@ -94,9 +101,11 @@ end
 
 estCap = Cap_array(find(Var_array==min(Var_array)));
 
+
 if (nargout > 1)
     % Send back more detailed info
     moreinfo = [Cap_array' Var_array'];
-    varargout{1} = moreinfo;
-end
-    
+    sendback.moreinfo = moreinfo;
+    sendback.numV     = length(dVdtlist);
+    varargout{1} = sendback;
+end    

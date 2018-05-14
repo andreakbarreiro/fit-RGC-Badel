@@ -46,7 +46,7 @@ for k=1:nList
    
 end
   
-click_through_sp_times_flag = 1;
+click_through_sp_times_flag = 0;
 if (click_through_sp_times_flag)
     nSub=nList;
     % Plot all spike times

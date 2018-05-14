@@ -41,14 +41,18 @@ capparam.tau_ref = tau_ref;  %in s
 Var_array_all = [];
 estCap_all = []; Vrest_keep =[];
 
+numV_array = [];
 for j1=1:length(Vrest_array)
-   capparam.Vrest = Vrest_array(j1);
+   capparam.Vrest = (j1);
    [estCap,blah]=estimate_capacitance_fn( tslist_cell, Vlist_array, gelist, gilist, capparam ); 
+   
+   estCap
    
    if (~isempty(estCap))
        Vrest_keep = [Vrest_keep Vrest_array(j1)];
        estCap_all = [estCap_all estCap];
-       Var_array_all = [Var_array_all blah(:,2)];
+       Var_array_all = [Var_array_all blah.moreinfo(:,2)];
+       numV_array = [numV_array blah.numV];
    end
 end
 
@@ -57,6 +61,7 @@ if (nargout > 1)
    moreInfo.Vrest_keep = Vrest_keep;
    moreInfo.estCap_all = estCap_all;
    moreInfo.Var_array_all = Var_array_all;
+   moreInfo.numV_array = numV_array;
    varargout{1} = moreInfo;
 end
 
@@ -68,7 +73,4 @@ to_avg_ind = find(Vrest_keep >= Vavg_min & Vrest_keep <= Vavg_max);
 
 estCap = mean(estCap_all(to_avg_ind));     % in nF
 
-
-
 end
-
